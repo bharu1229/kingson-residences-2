@@ -4,27 +4,534 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kingson Residences & Residential Lands Pvt Ltd</title>
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER / NAVBAR (CONSISTENT WITH PROPERTIES PAGE) ===== */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .logo h1 {
+            font-size: 18px;
+            color: #1a3c5e;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #1a3c5e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 15px;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #c9a84c;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #c9a84c;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #1a3c5e;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 80px 0 60px;
+            background: white;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text .badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #c9a84c;
+            color: white;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a1a2e;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 .highlight {
+            color: #c9a84c;
+        }
+
+        .hero-text p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 14px 35px;
+            background: #c9a84c;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #b8973a;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            padding: 14px 35px;
+            background: transparent;
+            color: #1a3c5e;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 2px solid #1a3c5e;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: #1a3c5e;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            height: 450px;
+            object-fit: cover;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: #c9a84c;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* ===== PROPERTIES PREVIEW ===== */
+        .properties-preview {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .property-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #eef2f7;
+        }
+
+        .property-info {
+            padding: 20px;
+        }
+
+        .property-info h3 {
+            font-size: 1.1rem;
+            color: #1a3c5e;
+            margin-bottom: 5px;
+        }
+
+        .property-info .location {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .property-info .location i {
+            color: #c9a84c;
+            margin-right: 5px;
+        }
+
+        .property-info .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #c9a84c;
+            margin-bottom: 10px;
+        }
+
+        .property-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .property-details span {
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .property-details span i {
+            color: #c9a84c;
+            margin-right: 3px;
+        }
+
+        .btn-view {
+            display: block;
+            padding: 10px;
+            background: #c9a84c;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            transition: background 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .btn-view:hover {
+            background: #b8973a;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1a3c5e;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-section ul a:hover {
+            color: #c9a84c;
+        }
+
+        .footer-section .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-section .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .footer-section .social-links a:hover {
+            background: #c9a84c;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .property-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-image img {
+                height: 250px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo h1 {
+                font-size: 14px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #fff;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container">
             <nav>
-                <!-- CHANGED: Logo image opens in new tab, but doesn't reload website -->
                 <a href="#" class="logo" onclick="event.preventDefault(); window.open('assets/images/logo.png', '_blank');">
-                    <img src="assets/images/logo.png" alt="Kingson Residences">
+                    <img src="assets/images/logo.png" alt="Kingson Residences" onerror="this.src='https://placehold.co/45x45/1a3c5e/fff?text=K'">
                     <h1>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h1>
                 </a>
-                <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="properties.html">Properties</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburger" id="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -94,7 +601,7 @@
             </div>
             <div class="property-grid">
                 <div class="property-card">
-                    <img src="assets/images/properties/apartment-1.jpg" alt="Luxury Apartment">
+                    <img src="https://placehold.co/600x400/2c5f8a/fff?text=Luxury+3BHK" alt="Luxury Apartment">
                     <div class="property-info">
                         <h3>Luxury 3BHK Apartment</h3>
                         <p class="location"><i class="fas fa-map-marker-alt"></i> Prime Location</p>
@@ -108,7 +615,7 @@
                     </div>
                 </div>
                 <div class="property-card">
-                    <img src="assets/images/properties/house-1.jpg" alt="Villa">
+                    <img src="https://placehold.co/600x400/1a3c5e/fff?text=Premium+Villa" alt="Villa">
                     <div class="property-info">
                         <h3>Premium Villa</h3>
                         <p class="location"><i class="fas fa-map-marker-alt"></i> Gated Community</p>
@@ -122,7 +629,7 @@
                     </div>
                 </div>
                 <div class="property-card">
-                    <img src="assets/images/properties/land-1.jpg" alt="Residential Land">
+                    <img src="https://placehold.co/600x400/27ae60/fff?text=Residential+Land" alt="Residential Land">
                     <div class="property-info">
                         <h3>Residential Land</h3>
                         <p class="location"><i class="fas fa-map-marker-alt"></i> Prime Location</p>
@@ -174,362 +681,11 @@
         </div>
     </footer>
 
-    <script type="module" src="assets/js/main.js"></script>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kingson Residences & Residential Lands Pvt Ltd</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <!-- CHANGED: Logo image opens in new tab, but doesn't reload website -->
-                <a href="#" class="logo" onclick="event.preventDefault(); window.open('assets/images/logo.png', '_blank');">
-                    <img src="assets/images/logo.png" alt="Kingson Residences">
-                    <h1>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h1>
-                </a>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="properties.html">Properties</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <span class="badge">Luxury Living</span>
-                    <h1>Find Your <span class="highlight">Dream Property</span> with Kingson</h1>
-                    <p>Discover premium apartments, residential lands, and luxury homes crafted for modern living. Your perfect property awaits.</p>
-                    <div class="hero-buttons">
-                        <a href="properties.html" class="btn-primary">Explore Properties</a>
-                        <a href="contact.html" class="btn-secondary">Contact Us</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="https://casagrand-prod.s3.ap-south-1.amazonaws.com/wp-content/uploads/2025/08/12_Casagrand_Jun25_On-Page_Can-You-Still-Find-Affordable-Independent-Houses-for-Sale-Near-Bangalores-IT-Corridors_.jpg" alt="Luxury Property">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose Kingson?</h2>
-                <p>We provide exceptional real estate services with integrity and professionalism</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-home"></i>
-                    <h3>Premium Properties</h3>
-                    <p>Curated selection of luxury apartments and residential lands</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Trusted Mediators</h3>
-                    <p>Professional property distribution with transparency</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Secure Transactions</h3>
-                    <p>Safe and legal property transactions guaranteed</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-headset"></i>
-                    <h3>24/7 Support</h3>
-                    <p>Dedicated team to assist you throughout your journey</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Properties Preview -->
-    <section class="properties-preview">
-        <div class="container">
-            <div class="section-header">
-                <h2>Featured Properties</h2>
-                <p>Explore our handpicked selection of premium properties</p>
-            </div>
-            <div class="property-grid">
-                <div class="property-card">
-                    <img src="assets/images/properties/apartment-1.jpg" alt="Luxury Apartment">
-                    <div class="property-info">
-                        <h3>Luxury 3BHK Apartment</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Prime Location</p>
-                        <p class="price">₹85 Lakhs</p>
-                        <div class="property-details">
-                            <span><i class="fas fa-bed"></i> 3 BHK</span>
-                            <span><i class="fas fa-bath"></i> 2 Bath</span>
-                            <span><i class="fas fa-car"></i> Parking</span>
-                        </div>
-                        <a href="property-details.html" class="btn-view">View Details</a>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <img src="assets/images/properties/house-1.jpg" alt="Villa">
-                    <div class="property-info">
-                        <h3>Premium Villa</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Gated Community</p>
-                        <p class="price">₹1.2 Crores</p>
-                        <div class="property-details">
-                            <span><i class="fas fa-bed"></i> 4 BHK</span>
-                            <span><i class="fas fa-bath"></i> 3 Bath</span>
-                            <span><i class="fas fa-car"></i> 2 Parking</span>
-                        </div>
-                        <a href="property-details.html" class="btn-view">View Details</a>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <img src="assets/images/properties/land-1.jpg" alt="Residential Land">
-                    <div class="property-info">
-                        <h3>Residential Land</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Prime Location</p>
-                        <p class="price">₹45 Lakhs</p>
-                        <div class="property-details">
-                            <span><i class="fas fa-vector-square"></i> 1500 sq.ft</span>
-                            <span><i class="fas fa-tree"></i> Clear Title</span>
-                            <span><i class="fas fa-road"></i> Road Access</span>
-                        </div>
-                        <a href="property-details.html" class="btn-view">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h3>
-                    <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="properties.html">Properties</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-phone"></i> 6309998135</p>
-                    <p><i class="fas fa-envelope"></i> info@kingsonresidences.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Kingson Residences & Residential Lands Pvt Ltd. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script type="module" src="assets/js/main.js"></script>
-</body>
-</<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kingson Residences & Residential Lands Pvt Ltd</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <!-- CHANGED: Logo image opens in new tab, but doesn't reload website -->
-                <a href="#" class="logo" onclick="event.preventDefault(); window.open('assets/images/logo.png', '_blank');">
-                    <img src="assets/images/logo.png" alt="Kingson Residences">
-                    <h1>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h1>
-                </a>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="properties.html">Properties</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <span class="badge">Luxury Living</span>
-                    <h1>Find Your <span class="highlight">Dream Property</span> with Kingson</h1>
-                    <p>Discover premium apartments, residential lands, and luxury homes crafted for modern living. Your perfect property awaits.</p>
-                    <div class="hero-buttons">
-                        <a href="properties.html" class="btn-primary">Explore Properties</a>
-                        <a href="contact.html" class="btn-secondary">Contact Us</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="https://casagrand-prod.s3.ap-south-1.amazonaws.com/wp-content/uploads/2025/08/12_Casagrand_Jun25_On-Page_Can-You-Still-Find-Affordable-Independent-Houses-for-Sale-Near-Bangalores-IT-Corridors_.jpg" alt="Luxury Property">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose Kingson?</h2>
-                <p>We provide exceptional real estate services with integrity and professionalism</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-home"></i>
-                    <h3>Premium Properties</h3>
-                    <p>Curated selection of luxury apartments and residential lands</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Trusted Mediators</h3>
-                    <p>Professional property distribution with transparency</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Secure Transactions</h3>
-                    <p>Safe and legal property transactions guaranteed</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-headset"></i>
-                    <h3>24/7 Support</h3>
-                    <p>Dedicated team to assist you throughout your journey</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Properties Preview -->
-    <section class="properties-preview">
-        <div class="container">
-            <div class="section-header">
-                <h2>Featured Properties</h2>
-                <p>Explore our handpicked selection of premium properties</p>
-            </div>
-            <div class="property-grid">
-                <div class="property-card">
-                    <img src="assets/images/properties/apartment-1.jpg" alt="Luxury Apartment">
-                    <div class="property-info">
-                        <h3>Luxury 3BHK Apartment</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Prime Location</p>
-                        <p class="price">₹85 Lakhs</p>
-                        <div class="property-details">
-                            <span><i class="fas fa-bed"></i> 3 BHK</span>
-                            <span><i class="fas fa-bath"></i> 2 Bath</span>
-                            <span><i class="fas fa-car"></i> Parking</span>
-                        </div>
-                        <a href="property-details.html" class="btn-view">View Details</a>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <img src="assets/images/properties/house-1.jpg" alt="Villa">
-                    <div class="property-info">
-                        <h3>Premium Villa</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Gated Community</p>
-                        <p class="price">₹1.2 Crores</p>
-                        <div class="property-details">
-                            <span><i class="fas fa-bed"></i> 4 BHK</span>
-                            <span><i class="fas fa-bath"></i> 3 Bath</span>
-                            <span><i class="fas fa-car"></i> 2 Parking</span>
-                        </div>
-                        <a href="property-details.html" class="btn-view">View Details</a>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <img src="assets/images/properties/land-1.jpg" alt="Residential Land">
-                    <div class="property-info">
-                        <h3>Residential Land</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Prime Location</p>
-                        <p class="price">₹45 Lakhs</p>
-                        <div class="property-details">
-                            <span><i class="fas fa-vector-square"></i> 1500 sq.ft</span>
-                            <span><i class="fas fa-tree"></i> Clear Title</span>
-                            <span><i class="fas fa-road"></i> Road Access</span>
-                        </div>
-                        <a href="property-details.html" class="btn-view">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h3>
-                    <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="properties.html">Properties</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-phone"></i> 6309998135</p>
-                    <p><i class="fas fa-envelope"></i> info@kingsonresidences.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Kingson Residences & Residential Lands Pvt Ltd. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script type="module" src="assets/js/main.js"></script>
+    <script>
+        // Hamburger Menu Toggle
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
