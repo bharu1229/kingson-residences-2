@@ -3,27 +3,497 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Properties - Kingson Residences</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Properties - Kingson Residences & Residential Lands Pvt Ltd</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER / NAVBAR ===== */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .logo h1 {
+            font-size: 18px;
+            color: #1a3c5e;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #1a3c5e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 15px;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #c9a84c;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #c9a84c;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #1a3c5e;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            background: linear-gradient(135deg, #1a3c5e 0%, #2c5f8a 100%);
+            color: #fff;
+            padding: 60px 0 50px;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .page-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* ===== FILTER SECTION ===== */
+        .filter-section {
+            padding: 40px 0;
+            background: #f8f9fa;
+        }
+
+        .filter-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            align-items: end;
+        }
+
+        .filter-group label {
+            display: block;
+            font-weight: 500;
+            color: #1a3c5e;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .filter-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: #333;
+            background: white;
+            transition: border-color 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .filter-group select:focus {
+            outline: none;
+            border-color: #c9a84c;
+        }
+
+        .btn-filter {
+            padding: 12px 30px;
+            background: #c9a84c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            height: 48px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-filter:hover {
+            background: #b8973a;
+        }
+
+        /* ===== PROPERTIES GRID ===== */
+        .properties-grid-section {
+            padding: 60px 0 80px;
+            background: white;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .property-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 6px 18px;
+            background: #c9a84c;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .property-badge.Premium {
+            background: #1a3c5e;
+        }
+
+        .property-badge.Hot {
+            background: #e74c3c;
+        }
+
+        .property-badge.Commercial {
+            background: #2980b9;
+        }
+
+        .property-info {
+            padding: 20px;
+        }
+
+        .property-info h3 {
+            font-size: 1.2rem;
+            color: #1a3c5e;
+            margin-bottom: 8px;
+        }
+
+        .property-info .location {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .property-info .location i {
+            color: #c9a84c;
+            margin-right: 5px;
+        }
+
+        .property-info .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #c9a84c;
+            margin-bottom: 12px;
+        }
+
+        .property-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .property-details span {
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .property-details span i {
+            color: #c9a84c;
+            margin-right: 5px;
+            width: 16px;
+        }
+
+        .property-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .property-actions .btn-view {
+            flex: 1;
+            padding: 10px 20px;
+            background: #c9a84c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            transition: background 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .property-actions .btn-view:hover {
+            background: #b8973a;
+        }
+
+        .btn-wishlist {
+            width: 44px;
+            height: 44px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .btn-wishlist:hover {
+            border-color: #c9a84c;
+            color: #c9a84c;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1a3c5e;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-section ul a:hover {
+            color: #c9a84c;
+        }
+
+        .footer-section .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-section .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .footer-section .social-links a:hover {
+            background: #c9a84c;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .filter-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .property-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .filter-container {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-filter {
+                width: 100%;
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .property-card img {
+                height: 200px;
+            }
+
+            .logo h1 {
+                font-size: 14px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #fff;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo">
+                <!-- LOGO: Opens logo image in new tab -->
+                <a href="#" class="logo" onclick="event.preventDefault(); window.open('assets/images/logo.png', '_blank');">
                     <img src="assets/images/logo.png" alt="Kingson Residences">
-                    <h1>Kingson Residences</h1>
+                    <h1>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h1>
                 </a>
-                <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="properties.html" class="active">Properties</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburger" id="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -71,7 +541,7 @@
                         <option value="gachibowli">Gachibowli</option>
                     </select>
                 </div>
-                <button class="btn-filter">Apply Filters</button>
+                <button class="btn-filter" onclick="applyFilters()">Apply Filters</button>
             </div>
         </div>
     </section>
@@ -82,7 +552,7 @@
             <div class="property-grid" id="propertyGrid">
                 <!-- Luxury 3BHK Apartment -->
                 <div class="property-card">
-                    <img src="assets/images/properties/apartment-1.jpg" alt="Luxury Apartment">
+                    <img src="assets/images/properties/apartment-1.jpg" alt="Luxury Apartment" onerror="this.src='https://via.placeholder.com/400x250?text=Luxury+Apartment'">
                     <div class="property-badge">For Sale</div>
                     <div class="property-info">
                         <h3>Luxury 3BHK Apartment</h3>
@@ -103,8 +573,8 @@
 
                 <!-- Premium 4BHK Villa -->
                 <div class="property-card">
-                    <img src="assets/images/properties/house-1.jpg" alt="Premium Villa">
-                    <div class="property-badge">Premium</div>
+                    <img src="assets/images/properties/house-1.jpg" alt="Premium Villa" onerror="this.src='https://via.placeholder.com/400x250?text=Premium+Villa'">
+                    <div class="property-badge Premium">Premium</div>
                     <div class="property-info">
                         <h3>Premium 4BHK Villa</h3>
                         <p class="location"><i class="fas fa-map-marker-alt"></i> Hitech City, Hyderabad</p>
@@ -124,8 +594,8 @@
 
                 <!-- Residential Land -->
                 <div class="property-card">
-                    <img src="assets/images/properties/land-1.jpg" alt="Residential Land">
-                    <div class="property-badge">Hot Deal</div>
+                    <img src="assets/images/properties/land-1.jpg" alt="Residential Land" onerror="this.src='https://via.placeholder.com/400x250?text=Residential+Land'">
+                    <div class="property-badge Hot">Hot Deal</div>
                     <div class="property-info">
                         <h3>Residential Land</h3>
                         <p class="location"><i class="fas fa-map-marker-alt"></i> Financial District, Hyderabad</p>
@@ -145,7 +615,7 @@
 
                 <!-- Modern 2BHK Apartment -->
                 <div class="property-card">
-                    <img src="assets/images/properties/apartment-2.jpg" alt="2BHK Apartment">
+                    <img src="assets/images/properties/apartment-2.jpg" alt="2BHK Apartment" onerror="this.src='https://via.placeholder.com/400x250?text=Modern+Apartment'">
                     <div class="property-badge">For Sale</div>
                     <div class="property-info">
                         <h3>Modern 2BHK Apartment</h3>
@@ -164,9 +634,10 @@
                     </div>
                 </div>
 
+                <!-- Independent House -->
                 <div class="property-card">
-                    <img src="assets/images/properties/house-2.jpg" alt="Independent House">
-                    <div class="property-badge">Premium</div>
+                    <img src="assets/images/properties/house-2.jpg" alt="Independent House" onerror="this.src='https://via.placeholder.com/400x250?text=Independent+House'">
+                    <div class="property-badge Premium">Premium</div>
                     <div class="property-info">
                         <h3>Independent House</h3>
                         <p class="location"><i class="fas fa-map-marker-alt"></i> Jubilee Hills, Hyderabad</p>
@@ -184,9 +655,10 @@
                     </div>
                 </div>
 
+                <!-- Commercial Land -->
                 <div class="property-card">
-                    <img src="assets/images/properties/land-2.jpg" alt="Commercial Land">
-                    <div class="property-badge">Commercial</div>
+                    <img src="assets/images/properties/land-2.jpg" alt="Commercial Land" onerror="this.src='https://via.placeholder.com/400x250?text=Commercial+Land'">
+                    <div class="property-badge Commercial">Commercial</div>
                     <div class="property-info">
                         <h3>Commercial Land</h3>
                         <p class="location"><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad</p>
@@ -212,7 +684,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Kingson Residences</h3>
+                    <h3>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h3>
                     <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -243,8 +715,13 @@
     </footer>
 
     <script>
+        // Hamburger Menu Toggle
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+
         // Filter Functionality
-        document.querySelector('.btn-filter').addEventListener('click', function() {
+        function applyFilters() {
             const type = document.getElementById('propertyType').value;
             const price = document.getElementById('priceRange').value;
             const location = document.getElementById('location').value;
@@ -253,21 +730,50 @@
 
             cards.forEach(card => {
                 let show = true;
+                
+                // Filter by type
                 if (type !== 'all') {
                     const cardText = card.querySelector('h3').textContent.toLowerCase();
                     if (type === 'apartment' && !cardText.includes('bhk')) show = false;
                     if (type === 'house' && !cardText.includes('villa') && !cardText.includes('house')) show = false;
                     if (type === 'land' && !cardText.includes('land')) show = false;
                 }
+                
+                // Filter by price
+                if (show && price !== 'all') {
+                    const priceText = card.querySelector('.price').textContent;
+                    const priceNum = parseFloat(priceText.replace(/[₹,CrLakhs]/g, '').trim());
+                    
+                    if (price === 'below50' && priceNum > 50) show = false;
+                    if (price === '50to1cr' && (priceNum < 50 || priceNum > 100)) show = false;
+                    if (price === 'above1cr' && priceNum < 100) show = false;
+                }
+                
+                // Filter by location
+                if (show && location !== 'all') {
+                    const locText = card.querySelector('.location').textContent.toLowerCase();
+                    if (!locText.includes(location)) show = false;
+                }
+                
                 card.style.display = show ? 'block' : 'none';
             });
-        });
+        }
 
-        // Hamburger Menu Toggle
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
+        // Wishlist button functionality
+        document.querySelectorAll('.btn-wishlist').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                icon.classList.toggle('far');
+                icon.classList.toggle('fas');
+                if (icon.classList.contains('fas')) {
+                    this.style.borderColor = '#e74c3c';
+                    this.style.color = '#e74c3c';
+                } else {
+                    this.style.borderColor = '#e0e0e0';
+                    this.style.color = '#666';
+                }
+            });
         });
     </script>
-    <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
