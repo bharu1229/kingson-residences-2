@@ -3,317 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Properties - KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</title>
+    <title>Properties - Kingson Residences</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Additional styles for properties page */
-        .page-hero {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            padding: 60px 0 50px;
-            text-align: center;
-            color: white;
-        }
-
-        .page-hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .page-hero p {
-            font-size: 1.1rem;
-            opacity: 0.8;
-        }
-
-        /* Filter Section */
-        .filter-section {
-            padding: 40px 0;
-            background: #f8f9fa;
-        }
-
-        .filter-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            align-items: end;
-        }
-
-        .filter-group label {
-            display: block;
-            font-weight: 500;
-            color: #1a1a2e;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .filter-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            color: #333;
-            background: white;
-            transition: border-color 0.3s;
-            cursor: pointer;
-        }
-
-        .filter-group select:focus {
-            outline: none;
-            border-color: #c9a84c;
-        }
-
-        .btn-filter {
-            padding: 12px 30px;
-            background: #c9a84c;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-            height: 48px;
-        }
-
-        .btn-filter:hover {
-            background: #b8973a;
-        }
-
-        /* Properties Grid Section */
-        .properties-grid-section {
-            padding: 60px 0 80px;
-            background: white;
-        }
-
-        .property-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .property-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-        }
-
-        .property-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .property-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .property-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 6px 18px;
-            background: #c9a84c;
-            color: white;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .property-badge.premium {
-            background: #1a1a2e;
-        }
-
-        .property-badge.hot-deal {
-            background: #e74c3c;
-        }
-
-        .property-badge.commercial {
-            background: #2980b9;
-        }
-
-        .property-info {
-            padding: 20px;
-        }
-
-        .property-info h3 {
-            font-size: 1.2rem;
-            color: #1a1a2e;
-            margin-bottom: 8px;
-        }
-
-        .property-info .location {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        .property-info .location i {
-            color: #c9a84c;
-            margin-right: 5px;
-        }
-
-        .property-info .price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #c9a84c;
-            margin-bottom: 12px;
-        }
-
-        .property-details {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .property-details span {
-            font-size: 0.85rem;
-            color: #555;
-        }
-
-        .property-details span i {
-            color: #c9a84c;
-            margin-right: 5px;
-            width: 16px;
-        }
-
-        .property-actions {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .property-actions .btn-view {
-            flex: 1;
-            padding: 10px 20px;
-            background: #c9a84c;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            text-decoration: none;
-            text-align: center;
-            font-weight: 500;
-            transition: background 0.3s;
-        }
-
-        .property-actions .btn-view:hover {
-            background: #b8973a;
-        }
-
-        .btn-wishlist {
-            width: 44px;
-            height: 44px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            background: white;
-            color: #666;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1.1rem;
-        }
-
-        .btn-wishlist:hover {
-            border-color: #c9a84c;
-            color: #c9a84c;
-        }
-
-        /* No Results Message */
-        .no-results {
-            display: none;
-            text-align: center;
-            padding: 60px 20px;
-            color: #666;
-            grid-column: 1 / -1;
-        }
-
-        .no-results i {
-            font-size: 3rem;
-            color: #c9a84c;
-            margin-bottom: 15px;
-        }
-
-        .no-results h3 {
-            font-size: 1.5rem;
-            color: #1a1a2e;
-            margin-bottom: 10px;
-        }
-
-        .no-results p {
-            font-size: 1rem;
-            color: #888;
-        }
-
-        /* Property Type Labels */
-        .property-type-label {
-            display: inline-block;
-            padding: 3px 12px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .type-apartment {
-            background: #e3f2fd;
-            color: #1565c0;
-        }
-
-        .type-villa {
-            background: #f3e5f5;
-            color: #7b1fa2;
-        }
-
-        .type-land {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
-
-        .type-house {
-            background: #fff3e0;
-            color: #e65100;
-        }
-
-        @media (max-width: 992px) {
-            .filter-container {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .property-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .page-hero h1 {
-                font-size: 2rem;
-            }
-
-            .filter-container {
-                grid-template-columns: 1fr;
-            }
-
-            .btn-filter {
-                width: 100%;
-            }
-
-            .property-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .property-card img {
-                height: 200px;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
@@ -322,7 +15,7 @@
             <nav>
                 <a href="index.html" class="logo">
                     <img src="assets/images/logo.png" alt="Kingson Residences">
-                    <h1>KINGSON RESIDENCES &amp; RESIDENTIAL LANDS PVT LTD</h1>
+                    <h1>Kingson Residences</h1>
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
@@ -356,7 +49,7 @@
                     <select id="propertyType">
                         <option value="all">All Properties</option>
                         <option value="apartment">Apartments</option>
-                        <option value="villa">Houses/Villas</option>
+                        <option value="house">Houses/Villas</option>
                         <option value="land">Residential Lands</option>
                     </select>
                 </div>
@@ -373,12 +66,12 @@
                     <label>Location</label>
                     <select id="location">
                         <option value="all">All Locations</option>
+                        <option value="hyderabad">Hyderabad</option>
+                        <option value="secunderabad">Secunderabad</option>
                         <option value="gachibowli">Gachibowli</option>
-                        <option value="hitech">Hitech City</option>
-                        <option value="financial">Financial District</option>
                     </select>
                 </div>
-                <button class="btn-filter" onclick="applyFilters()">Apply Filters</button>
+                <button class="btn-filter">Apply Filters</button>
             </div>
         </div>
     </section>
@@ -387,12 +80,11 @@
     <section class="properties-grid-section">
         <div class="container">
             <div class="property-grid" id="propertyGrid">
-                <!-- Property 1: Luxury 3BHK Apartment -->
-                <div class="property-card" data-type="apartment" data-price="85" data-location="gachibowli">
-                    <img src="assets/images/properties/apartment-1.jpg" alt="Luxury Apartment" onerror="this.src='https://via.placeholder.com/400x250/1a3c5e/ffffff?text=Luxury+Apartment'">
+                <!-- Luxury 3BHK Apartment -->
+                <div class="property-card">
+                    <img src="assets/images/properties/apartment-1.jpg" alt="Luxury Apartment">
                     <div class="property-badge">For Sale</div>
                     <div class="property-info">
-                        <span class="property-type-label type-apartment">Apartment</span>
                         <h3>Luxury 3BHK Apartment</h3>
                         <p class="location"><i class="fas fa-map-marker-alt"></i> Gachibowli, Hyderabad</p>
                         <p class="price">₹85 Lakhs</p>
@@ -403,40 +95,17 @@
                             <span><i class="fas fa-vector-square"></i> 1800 sq.ft</span>
                         </div>
                         <div class="property-actions">
-                            <a href="property-details.html" class="btn-view">View Details</a>
+                            <a href="property-details.html?type=apartment" class="btn-view">View Details</a>
                             <button class="btn-wishlist"><i class="far fa-heart"></i></button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Property 2: Modern 2BHK Apartment -->
-                <div class="property-card" data-type="apartment" data-price="55" data-location="gachibowli">
-                    <img src="assets/images/properties/apartment-2.jpg" alt="2BHK Apartment" onerror="this.src='https://via.placeholder.com/400x250/1a3c5e/ffffff?text=2BHK+Apartment'">
-                    <div class="property-badge">For Sale</div>
+                <!-- Premium 4BHK Villa -->
+                <div class="property-card">
+                    <img src="assets/images/properties/house-1.jpg" alt="Premium Villa">
+                    <div class="property-badge">Premium</div>
                     <div class="property-info">
-                        <span class="property-type-label type-apartment">Apartment</span>
-                        <h3>Modern 2BHK Apartment</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Kondapur, Hyderabad</p>
-                        <p class="price">₹55 Lakhs</p>
-                        <div class="property-details">
-                            <span><i class="fas fa-bed"></i> 2 BHK</span>
-                            <span><i class="fas fa-bath"></i> 2 Bath</span>
-                            <span><i class="fas fa-car"></i> Parking</span>
-                            <span><i class="fas fa-vector-square"></i> 1200 sq.ft</span>
-                        </div>
-                        <div class="property-actions">
-                            <a href="property-details.html" class="btn-view">View Details</a>
-                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 3: Premium 4BHK Villa -->
-                <div class="property-card" data-type="villa" data-price="120" data-location="hitech">
-                    <img src="assets/images/properties/house-1.jpg" alt="Premium Villa" onerror="this.src='https://via.placeholder.com/400x250/1a3c5e/ffffff?text=Premium+Villa'">
-                    <div class="property-badge premium">Premium</div>
-                    <div class="property-info">
-                        <span class="property-type-label type-villa">Villa</span>
                         <h3>Premium 4BHK Villa</h3>
                         <p class="location"><i class="fas fa-map-marker-alt"></i> Hitech City, Hyderabad</p>
                         <p class="price">₹1.2 Crores</p>
@@ -447,40 +116,17 @@
                             <span><i class="fas fa-vector-square"></i> 3200 sq.ft</span>
                         </div>
                         <div class="property-actions">
-                            <a href="property-details.html" class="btn-view">View Details</a>
+                            <a href="property-details.html?type=villa" class="btn-view">View Details</a>
                             <button class="btn-wishlist"><i class="far fa-heart"></i></button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Property 4: Independent House -->
-                <div class="property-card" data-type="villa" data-price="250" data-location="financial">
-                    <img src="assets/images/properties/house-2.jpg" alt="Independent House" onerror="this.src='https://via.placeholder.com/400x250/1a3c5e/ffffff?text=Independent+House'">
-                    <div class="property-badge premium">Premium</div>
+                <!-- Residential Land -->
+                <div class="property-card">
+                    <img src="assets/images/properties/land-1.jpg" alt="Residential Land">
+                    <div class="property-badge">Hot Deal</div>
                     <div class="property-info">
-                        <span class="property-type-label type-house">House</span>
-                        <h3>Independent House</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Jubilee Hills, Hyderabad</p>
-                        <p class="price">₹2.5 Crores</p>
-                        <div class="property-details">
-                            <span><i class="fas fa-bed"></i> 5 BHK</span>
-                            <span><i class="fas fa-bath"></i> 4 Bath</span>
-                            <span><i class="fas fa-car"></i> 3 Parking</span>
-                            <span><i class="fas fa-vector-square"></i> 4500 sq.ft</span>
-                        </div>
-                        <div class="property-actions">
-                            <a href="property-details.html" class="btn-view">View Details</a>
-                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 5: Residential Land -->
-                <div class="property-card" data-type="land" data-price="45" data-location="financial">
-                    <img src="assets/images/properties/land-1.jpg" alt="Residential Land" onerror="this.src='https://via.placeholder.com/400x250/1a3c5e/ffffff?text=Residential+Land'">
-                    <div class="property-badge hot-deal">Hot Deal</div>
-                    <div class="property-info">
-                        <span class="property-type-label type-land">Land</span>
                         <h3>Residential Land</h3>
                         <p class="location"><i class="fas fa-map-marker-alt"></i> Financial District, Hyderabad</p>
                         <p class="price">₹45 Lakhs</p>
@@ -491,18 +137,57 @@
                             <span><i class="fas fa-water"></i> Water Supply</span>
                         </div>
                         <div class="property-actions">
-                            <a href="property-details.html" class="btn-view">View Details</a>
+                            <a href="property-details.html?type=land" class="btn-view">View Details</a>
                             <button class="btn-wishlist"><i class="far fa-heart"></i></button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Property 6: Commercial Land -->
-                <div class="property-card" data-type="land" data-price="380" data-location="gachibowli">
-                    <img src="assets/images/properties/land-2.jpg" alt="Commercial Land" onerror="this.src='https://via.placeholder.com/400x250/1a3c5e/ffffff?text=Commercial+Land'">
-                    <div class="property-badge commercial">Commercial</div>
+                <!-- Modern 2BHK Apartment -->
+                <div class="property-card">
+                    <img src="assets/images/properties/apartment-2.jpg" alt="2BHK Apartment">
+                    <div class="property-badge">For Sale</div>
                     <div class="property-info">
-                        <span class="property-type-label type-land">Land</span>
+                        <h3>Modern 2BHK Apartment</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Kondapur, Hyderabad</p>
+                        <p class="price">₹55 Lakhs</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i> 2 BHK</span>
+                            <span><i class="fas fa-bath"></i> 2 Bath</span>
+                            <span><i class="fas fa-car"></i> Parking</span>
+                            <span><i class="fas fa-vector-square"></i> 1200 sq.ft</span>
+                        </div>
+                        <div class="property-actions">
+                            <a href="property-details.html?type=apartment2" class="btn-view">View Details</a>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <img src="assets/images/properties/house-2.jpg" alt="Independent House">
+                    <div class="property-badge">Premium</div>
+                    <div class="property-info">
+                        <h3>Independent House</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Jubilee Hills, Hyderabad</p>
+                        <p class="price">₹2.5 Crores</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i> 5 BHK</span>
+                            <span><i class="fas fa-bath"></i> 4 Bath</span>
+                            <span><i class="fas fa-car"></i> 3 Parking</span>
+                            <span><i class="fas fa-vector-square"></i> 4500 sq.ft</span>
+                        </div>
+                        <div class="property-actions">
+                            <a href="property-details.html?type=house" class="btn-view">View Details</a>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <img src="assets/images/properties/land-2.jpg" alt="Commercial Land">
+                    <div class="property-badge">Commercial</div>
+                    <div class="property-info">
                         <h3>Commercial Land</h3>
                         <p class="location"><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad</p>
                         <p class="price">₹3.8 Crores</p>
@@ -513,17 +198,10 @@
                             <span><i class="fas fa-building"></i> Commercial Zone</span>
                         </div>
                         <div class="property-actions">
-                            <a href="property-details.html" class="btn-view">View Details</a>
+                            <a href="property-details.html?type=commercial" class="btn-view">View Details</a>
                             <button class="btn-wishlist"><i class="far fa-heart"></i></button>
                         </div>
                     </div>
-                </div>
-
-                <!-- No Results Message -->
-                <div class="no-results" id="noResults">
-                    <i class="fas fa-search"></i>
-                    <h3>No Properties Found</h3>
-                    <p>Try adjusting your filters to find the perfect property.</p>
                 </div>
             </div>
         </div>
@@ -534,7 +212,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>KINGSON RESIDENCES &amp; RESIDENTIAL LANDS PVT LTD</h3>
+                    <h3>Kingson Residences</h3>
                     <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -559,106 +237,37 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 KINGSON RESIDENCES &amp; RESIDENTIAL LANDS PVT LTD. All rights reserved.</p>
+                <p>&copy; 2026 Kingson Residences & Residential Lands Pvt Ltd. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
         // Filter Functionality
-        function applyFilters() {
+        document.querySelector('.btn-filter').addEventListener('click', function() {
             const type = document.getElementById('propertyType').value;
             const price = document.getElementById('priceRange').value;
             const location = document.getElementById('location').value;
 
             const cards = document.querySelectorAll('.property-card');
-            let visibleCount = 0;
 
             cards.forEach(card => {
                 let show = true;
-
-                // Filter by Property Type
                 if (type !== 'all') {
-                    const cardType = card.dataset.type;
-                    if (cardType !== type) {
-                        show = false;
-                    }
+                    const cardText = card.querySelector('h3').textContent.toLowerCase();
+                    if (type === 'apartment' && !cardText.includes('bhk')) show = false;
+                    if (type === 'house' && !cardText.includes('villa') && !cardText.includes('house')) show = false;
+                    if (type === 'land' && !cardText.includes('land')) show = false;
                 }
-
-                // Filter by Price Range
-                if (price !== 'all' && show) {
-                    const cardPrice = parseInt(card.dataset.price);
-                    if (price === 'below50' && cardPrice >= 50) {
-                        show = false;
-                    } else if (price === '50to1cr' && (cardPrice < 50 || cardPrice > 100)) {
-                        show = false;
-                    } else if (price === 'above1cr' && cardPrice <= 100) {
-                        show = false;
-                    }
-                }
-
-                // Filter by Location
-                if (location !== 'all' && show) {
-                    const cardLocation = card.dataset.location;
-                    if (cardLocation !== location) {
-                        show = false;
-                    }
-                }
-
                 card.style.display = show ? 'block' : 'none';
-                if (show) visibleCount++;
             });
-
-            // Show/hide no results message
-            const noResults = document.getElementById('noResults');
-            if (visibleCount === 0) {
-                noResults.style.display = 'block';
-            } else {
-                noResults.style.display = 'none';
-            }
-
-            // Update filter button text
-            const btn = document.querySelector('.btn-filter');
-            btn.textContent = 'Apply Filters';
-            setTimeout(() => {
-                btn.textContent = 'Apply Filters';
-            }, 1000);
-        }
+        });
 
         // Hamburger Menu Toggle
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
-
-        // Wishlist Button Functionality
-        document.querySelectorAll('.btn-wishlist').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const icon = this.querySelector('i');
-                icon.classList.toggle('far');
-                icon.classList.toggle('fas');
-                if (icon.classList.contains('fas')) {
-                    this.style.borderColor = '#c9a84c';
-                    this.style.color = '#c9a84c';
-                } else {
-                    this.style.borderColor = '#e0e0e0';
-                    this.style.color = '#666';
-                }
-            });
-        });
-
-        // Reset filters with Enter key
-        document.querySelectorAll('.filter-group select').forEach(select => {
-            select.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    applyFilters();
-                }
-            });
-        });
-
-        // Auto apply filters on change (optional - uncomment if desired)
-        // document.querySelectorAll('.filter-group select').forEach(select => {
-        //     select.addEventListener('change', applyFilters);
-        // });
     </script>
+    <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
