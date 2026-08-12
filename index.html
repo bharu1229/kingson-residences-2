@@ -13,9 +13,10 @@
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo" target="_blank">
+                <!-- CHANGED: Logo image opens in new tab, but doesn't reload website -->
+                <a href="#" class="logo" onclick="event.preventDefault(); window.open('assets/images/logo.png', '_blank');">
                     <img src="assets/images/logo.png" alt="Kingson Residences">
-                    <h1>Kingson Residences</h1>
+                    <h1>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h1>
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
@@ -143,7 +144,363 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Kingson Residences</h3>
+                    <h3>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h3>
+                    <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> 6309998135</p>
+                    <p><i class="fas fa-envelope"></i> info@kingsonresidences.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kingson Residences & Residential Lands Pvt Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingson Residences & Residential Lands Pvt Ltd</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <!-- CHANGED: Logo image opens in new tab, but doesn't reload website -->
+                <a href="#" class="logo" onclick="event.preventDefault(); window.open('assets/images/logo.png', '_blank');">
+                    <img src="assets/images/logo.png" alt="Kingson Residences">
+                    <h1>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h1>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="badge">Luxury Living</span>
+                    <h1>Find Your <span class="highlight">Dream Property</span> with Kingson</h1>
+                    <p>Discover premium apartments, residential lands, and luxury homes crafted for modern living. Your perfect property awaits.</p>
+                    <div class="hero-buttons">
+                        <a href="properties.html" class="btn-primary">Explore Properties</a>
+                        <a href="contact.html" class="btn-secondary">Contact Us</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://casagrand-prod.s3.ap-south-1.amazonaws.com/wp-content/uploads/2025/08/12_Casagrand_Jun25_On-Page_Can-You-Still-Find-Affordable-Independent-Houses-for-Sale-Near-Bangalores-IT-Corridors_.jpg" alt="Luxury Property">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Kingson?</h2>
+                <p>We provide exceptional real estate services with integrity and professionalism</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Premium Properties</h3>
+                    <p>Curated selection of luxury apartments and residential lands</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Trusted Mediators</h3>
+                    <p>Professional property distribution with transparency</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Transactions</h3>
+                    <p>Safe and legal property transactions guaranteed</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated team to assist you throughout your journey</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Preview -->
+    <section class="properties-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Properties</h2>
+                <p>Explore our handpicked selection of premium properties</p>
+            </div>
+            <div class="property-grid">
+                <div class="property-card">
+                    <img src="assets/images/properties/apartment-1.jpg" alt="Luxury Apartment">
+                    <div class="property-info">
+                        <h3>Luxury 3BHK Apartment</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Prime Location</p>
+                        <p class="price">₹85 Lakhs</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i> 3 BHK</span>
+                            <span><i class="fas fa-bath"></i> 2 Bath</span>
+                            <span><i class="fas fa-car"></i> Parking</span>
+                        </div>
+                        <a href="property-details.html" class="btn-view">View Details</a>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <img src="assets/images/properties/house-1.jpg" alt="Villa">
+                    <div class="property-info">
+                        <h3>Premium Villa</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Gated Community</p>
+                        <p class="price">₹1.2 Crores</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i> 4 BHK</span>
+                            <span><i class="fas fa-bath"></i> 3 Bath</span>
+                            <span><i class="fas fa-car"></i> 2 Parking</span>
+                        </div>
+                        <a href="property-details.html" class="btn-view">View Details</a>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <img src="assets/images/properties/land-1.jpg" alt="Residential Land">
+                    <div class="property-info">
+                        <h3>Residential Land</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Prime Location</p>
+                        <p class="price">₹45 Lakhs</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-vector-square"></i> 1500 sq.ft</span>
+                            <span><i class="fas fa-tree"></i> Clear Title</span>
+                            <span><i class="fas fa-road"></i> Road Access</span>
+                        </div>
+                        <a href="property-details.html" class="btn-view">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h3>
+                    <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> 6309998135</p>
+                    <p><i class="fas fa-envelope"></i> info@kingsonresidences.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kingson Residences & Residential Lands Pvt Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingson Residences & Residential Lands Pvt Ltd</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <!-- CHANGED: Logo image opens in new tab, but doesn't reload website -->
+                <a href="#" class="logo" onclick="event.preventDefault(); window.open('assets/images/logo.png', '_blank');">
+                    <img src="assets/images/logo.png" alt="Kingson Residences">
+                    <h1>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h1>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="badge">Luxury Living</span>
+                    <h1>Find Your <span class="highlight">Dream Property</span> with Kingson</h1>
+                    <p>Discover premium apartments, residential lands, and luxury homes crafted for modern living. Your perfect property awaits.</p>
+                    <div class="hero-buttons">
+                        <a href="properties.html" class="btn-primary">Explore Properties</a>
+                        <a href="contact.html" class="btn-secondary">Contact Us</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://casagrand-prod.s3.ap-south-1.amazonaws.com/wp-content/uploads/2025/08/12_Casagrand_Jun25_On-Page_Can-You-Still-Find-Affordable-Independent-Houses-for-Sale-Near-Bangalores-IT-Corridors_.jpg" alt="Luxury Property">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Kingson?</h2>
+                <p>We provide exceptional real estate services with integrity and professionalism</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Premium Properties</h3>
+                    <p>Curated selection of luxury apartments and residential lands</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Trusted Mediators</h3>
+                    <p>Professional property distribution with transparency</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Transactions</h3>
+                    <p>Safe and legal property transactions guaranteed</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated team to assist you throughout your journey</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Preview -->
+    <section class="properties-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Properties</h2>
+                <p>Explore our handpicked selection of premium properties</p>
+            </div>
+            <div class="property-grid">
+                <div class="property-card">
+                    <img src="assets/images/properties/apartment-1.jpg" alt="Luxury Apartment">
+                    <div class="property-info">
+                        <h3>Luxury 3BHK Apartment</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Prime Location</p>
+                        <p class="price">₹85 Lakhs</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i> 3 BHK</span>
+                            <span><i class="fas fa-bath"></i> 2 Bath</span>
+                            <span><i class="fas fa-car"></i> Parking</span>
+                        </div>
+                        <a href="property-details.html" class="btn-view">View Details</a>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <img src="assets/images/properties/house-1.jpg" alt="Villa">
+                    <div class="property-info">
+                        <h3>Premium Villa</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Gated Community</p>
+                        <p class="price">₹1.2 Crores</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i> 4 BHK</span>
+                            <span><i class="fas fa-bath"></i> 3 Bath</span>
+                            <span><i class="fas fa-car"></i> 2 Parking</span>
+                        </div>
+                        <a href="property-details.html" class="btn-view">View Details</a>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <img src="assets/images/properties/land-1.jpg" alt="Residential Land">
+                    <div class="property-info">
+                        <h3>Residential Land</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Prime Location</p>
+                        <p class="price">₹45 Lakhs</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-vector-square"></i> 1500 sq.ft</span>
+                            <span><i class="fas fa-tree"></i> Clear Title</span>
+                            <span><i class="fas fa-road"></i> Road Access</span>
+                        </div>
+                        <a href="property-details.html" class="btn-view">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h3>
                     <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -176,6 +533,3 @@
     <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
-
-
-index.html code
