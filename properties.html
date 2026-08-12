@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties - Kingson Residences</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo.png" alt="Kingson Residences">
+                    <h1>Kingson Residences</h1>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="properties.html" class="active">Properties</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Properties</h1>
+            <p>Discover premium apartments, residential lands, and luxury homes</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label>Property Type</label>
+                    <select id="propertyType">
+                        <option value="all">All Properties</option>
+                        <option value="apartment">Apartments</option>
+                        <option value="house">Houses/Villas</option>
+                        <option value="land">Residential Lands</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Price Range</label>
+                    <select id="priceRange">
+                        <option value="all">All Prices</option>
+                        <option value="below50">Below ₹50 Lakhs</option>
+                        <option value="50to1cr">₹50 Lakhs - ₹1 Crore</option>
+                        <option value="above1cr">Above ₹1 Crore</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Location</label>
+                    <select id="location">
+                        <option value="all">All Locations</option>
+                        <option value="hyderabad">Hyderabad</option>
+                        <option value="secunderabad">Secunderabad</option>
+                        <option value="gachibowli">Gachibowli</option>
+                    </select>
+                </div>
+                <button class="btn-filter">Apply Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Grid -->
+    <section class="properties-grid-section">
+        <div class="container">
+            <div class="property-grid" id="propertyGrid">
+                <!-- Luxury 3BHK Apartment -->
+                <div class="property-card">
+                    <img src="assets/images/properties/apartment-1.jpg" alt="Luxury Apartment">
+                    <div class="property-badge">For Sale</div>
+                    <div class="property-info">
+                        <h3>Luxury 3BHK Apartment</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Gachibowli, Hyderabad</p>
+                        <p class="price">₹85 Lakhs</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i> 3 BHK</span>
+                            <span><i class="fas fa-bath"></i> 2 Bath</span>
+                            <span><i class="fas fa-car"></i> Parking</span>
+                            <span><i class="fas fa-vector-square"></i> 1800 sq.ft</span>
+                        </div>
+                        <div class="property-actions">
+                            <a href="property-details.html?type=apartment" class="btn-view">View Details</a>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium 4BHK Villa -->
+                <div class="property-card">
+                    <img src="assets/images/properties/house-1.jpg" alt="Premium Villa">
+                    <div class="property-badge">Premium</div>
+                    <div class="property-info">
+                        <h3>Premium 4BHK Villa</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Hitech City, Hyderabad</p>
+                        <p class="price">₹1.2 Crores</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i> 4 BHK</span>
+                            <span><i class="fas fa-bath"></i> 3 Bath</span>
+                            <span><i class="fas fa-car"></i> 2 Parking</span>
+                            <span><i class="fas fa-vector-square"></i> 3200 sq.ft</span>
+                        </div>
+                        <div class="property-actions">
+                            <a href="property-details.html?type=villa" class="btn-view">View Details</a>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Residential Land -->
+                <div class="property-card">
+                    <img src="assets/images/properties/land-1.jpg" alt="Residential Land">
+                    <div class="property-badge">Hot Deal</div>
+                    <div class="property-info">
+                        <h3>Residential Land</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Financial District, Hyderabad</p>
+                        <p class="price">₹45 Lakhs</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-vector-square"></i> 1500 sq.ft</span>
+                            <span><i class="fas fa-tree"></i> Clear Title</span>
+                            <span><i class="fas fa-road"></i> Road Access</span>
+                            <span><i class="fas fa-water"></i> Water Supply</span>
+                        </div>
+                        <div class="property-actions">
+                            <a href="property-details.html?type=land" class="btn-view">View Details</a>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modern 2BHK Apartment -->
+                <div class="property-card">
+                    <img src="assets/images/properties/apartment-2.jpg" alt="2BHK Apartment">
+                    <div class="property-badge">For Sale</div>
+                    <div class="property-info">
+                        <h3>Modern 2BHK Apartment</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Kondapur, Hyderabad</p>
+                        <p class="price">₹55 Lakhs</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i> 2 BHK</span>
+                            <span><i class="fas fa-bath"></i> 2 Bath</span>
+                            <span><i class="fas fa-car"></i> Parking</span>
+                            <span><i class="fas fa-vector-square"></i> 1200 sq.ft</span>
+                        </div>
+                        <div class="property-actions">
+                            <a href="property-details.html?type=apartment2" class="btn-view">View Details</a>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <img src="assets/images/properties/house-2.jpg" alt="Independent House">
+                    <div class="property-badge">Premium</div>
+                    <div class="property-info">
+                        <h3>Independent House</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Jubilee Hills, Hyderabad</p>
+                        <p class="price">₹2.5 Crores</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-bed"></i> 5 BHK</span>
+                            <span><i class="fas fa-bath"></i> 4 Bath</span>
+                            <span><i class="fas fa-car"></i> 3 Parking</span>
+                            <span><i class="fas fa-vector-square"></i> 4500 sq.ft</span>
+                        </div>
+                        <div class="property-actions">
+                            <a href="property-details.html?type=house" class="btn-view">View Details</a>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <img src="assets/images/properties/land-2.jpg" alt="Commercial Land">
+                    <div class="property-badge">Commercial</div>
+                    <div class="property-info">
+                        <h3>Commercial Land</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Madhapur, Hyderabad</p>
+                        <p class="price">₹3.8 Crores</p>
+                        <div class="property-details">
+                            <span><i class="fas fa-vector-square"></i> 5000 sq.ft</span>
+                            <span><i class="fas fa-tree"></i> Clear Title</span>
+                            <span><i class="fas fa-road"></i> Main Road</span>
+                            <span><i class="fas fa-building"></i> Commercial Zone</span>
+                        </div>
+                        <div class="property-actions">
+                            <a href="property-details.html?type=commercial" class="btn-view">View Details</a>
+                            <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kingson Residences</h3>
+                    <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> 6309998135</p>
+                    <p><i class="fas fa-envelope"></i> info@kingsonresidences.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kingson Residences & Residential Lands Pvt Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter Functionality
+        document.querySelector('.btn-filter').addEventListener('click', function() {
+            const type = document.getElementById('propertyType').value;
+            const price = document.getElementById('priceRange').value;
+            const location = document.getElementById('location').value;
+
+            const cards = document.querySelectorAll('.property-card');
+
+            cards.forEach(card => {
+                let show = true;
+                if (type !== 'all') {
+                    const cardText = card.querySelector('h3').textContent.toLowerCase();
+                    if (type === 'apartment' && !cardText.includes('bhk')) show = false;
+                    if (type === 'house' && !cardText.includes('villa') && !cardText.includes('house')) show = false;
+                    if (type === 'land' && !cardText.includes('land')) show = false;
+                }
+                card.style.display = show ? 'block' : 'none';
+            });
+        });
+
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

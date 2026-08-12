@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Kingson Residences</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for about page */
+        .about-content {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image img {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-text h2 {
+                font-size: 1.6rem;
+            }
+
+            .about-image img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo.png" alt="Kingson Residences">
+                    <h1>Kingson Residences</h1>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>About Kingson Residences</h1>
+            <p>Excellence in real estate since inception</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Building Dreams, Creating Homes</h2>
+                    <p>Kingson Residences & Residential Lands Pvt Ltd is a premier real estate company dedicated to providing exceptional property solutions. Founded by <strong>Mr. Prassana Kumar</strong>, our company has been at the forefront of delivering quality residential properties and lands that exceed expectations.</p>
+                    <p>With a deep understanding of the real estate market and a commitment to excellence, we have helped thousands of families find their dream homes and make sound property investments. Our expertise spans across luxury apartments, premium residential lands, and exclusive villas in prime locations.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://www.commercialproperty.review/wp-content/uploads/2021/03/Aparna-Serene-Park-Apartments-Kondapur-Hyderabad.jpg" alt="About Kingson Residences">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Our Vision</h3>
+                    <p>To become India's most trusted and preferred real estate partner, creating sustainable communities and delivering unparalleled value to our customers through innovation and integrity.</p>
+                </div>
+                <div class="mv-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Our Mission</h3>
+                    <p>To provide exceptional real estate solutions with transparency, professionalism, and a customer-first approach. We strive to exceed expectations and build lasting relationships with our clients.</p>
+                </div>
+                <div class="mv-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Our Values</h3>
+                    <p>Integrity, transparency, customer satisfaction, and innovation drive everything we do. We believe in building trust through honest and ethical business practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Kingson -->
+    <section class="why-kingson">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Kingson Residences?</h2>
+                <p>Discover what makes us the preferred choice for property seekers</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h4>15+ Years Experience</h4>
+                    <p>Trusted expertise in the real estate industry</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>1000+ Happy Families</h4>
+                    <p>Successfully helped families find their dream homes</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h4>50+ Projects Delivered</h4>
+                    <p>Successful residential and land projects completed</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>4.9/5 Rating</h4>
+                    <p>Exceptional client satisfaction and trust</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="founder-section">
+        <div class="container">
+            <div class="founder-content">
+                <div class="founder-image">
+                    <img src="assets/images/agents/founder.jpg" alt="Mr. Prassana Kumar - Founder">
+                </div>
+                <div class="founder-info">
+                    <h2>Meet Our Founder</h2>
+                    <h3>Mr. Prassana Kumar</h3>
+                    <p>With a vision to revolutionize the real estate industry, Mr. Prassana Kumar founded Kingson Residences & Residential Lands Pvt Ltd with a commitment to excellence, integrity, and customer satisfaction. His extensive experience and deep understanding of the real estate market have made Kingson Residences a trusted name in the industry.</p>
+                    <p>Under his leadership, the company has grown from strength to strength, delivering exceptional properties and creating lasting value for customers across India.</p>
+                    <div class="founder-signature">
+                        <img src="assets/images/icons/signature.png" alt="Signature">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kingson Residences</h3>
+                    <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> 6309998135</p>
+                    <p><i class="fas fa-envelope"></i> info@kingsonresidences.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kingson Residences & Residential Lands Pvt Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
