@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Property Details - Kingson Residences</title>
+    <title>Property Details - Kingson Residences & Residential Lands Pvt Ltd</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -65,7 +65,7 @@
         }
 
         .thumbnail-grid img.active-thumb {
-            border-color: #e74c3c;
+            border-color: #c9a84c;
         }
 
         .property-info-details h1 {
@@ -82,7 +82,7 @@
         }
 
         .location-detail i {
-            color: #e74c3c;
+            color: #c9a84c;
             margin-right: 8px;
         }
 
@@ -100,7 +100,7 @@
         }
 
         .price-detail .property-status {
-            background: #27ae60;
+            background: #c9a84c;
             color: #fff;
             padding: 5px 20px;
             border-radius: 20px;
@@ -127,7 +127,7 @@
 
         .property-specs .spec-item i {
             font-size: 1.3rem;
-            color: #1a1a2e;
+            color: #c9a84c;
             display: block;
             margin-bottom: 5px;
         }
@@ -173,7 +173,7 @@
         }
 
         .property-features ul li i {
-            color: #27ae60;
+            color: #c9a84c;
             font-size: 1rem;
         }
 
@@ -184,7 +184,7 @@
 
         .property-actions .btn-primary {
             padding: 14px 35px;
-            background: #e74c3c;
+            background: #c9a84c;
             color: #fff;
             border: none;
             border-radius: 30px;
@@ -197,7 +197,7 @@
         }
 
         .property-actions .btn-primary:hover {
-            background: #c0392b;
+            background: #b8973a;
         }
 
         .property-actions .btn-secondary {
@@ -299,9 +299,11 @@
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo">
+                <!-- CHANGED: Logo opens ONLY the logo image in new tab -->
+                <a href="#" class="logo" onclick="event.preventDefault(); window.open('assets/images/logo.png', '_blank');">
                     <img src="assets/images/logo.png" alt="Kingson Residences">
-                    <h1>Kingson Residences</h1>
+                    <!-- CHANGED: Updated company name -->
+                    <h1>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h1>
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
@@ -374,7 +376,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Kingson Residences</h3>
+                    <!-- CHANGED: Updated company name in footer -->
+                    <h3>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h3>
                     <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
