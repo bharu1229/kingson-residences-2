@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Kingson Residences</title>
+    <title>About Us - Kingson Residences & Residential Lands Pvt Ltd</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -53,6 +53,187 @@
             transform: scale(1.02);
         }
 
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 60px 0 50px;
+            text-align: center;
+            color: white;
+        }
+
+        .page-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .page-hero p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* Mission Vision */
+        .mission-vision {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .mv-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .mv-card i {
+            font-size: 3rem;
+            color: #c9a84c;
+            margin-bottom: 20px;
+        }
+
+        .mv-card h3 {
+            font-size: 1.3rem;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+
+        .mv-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Why Kingson */
+        .why-kingson {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            background: #1a1a2e;
+        }
+
+        .benefit-card:hover h4,
+        .benefit-card:hover p {
+            color: white;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            background: white;
+        }
+
+        .benefit-card:hover .benefit-icon i {
+            color: #c9a84c;
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: #c9a84c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            transition: 0.3s;
+        }
+
+        .benefit-icon i {
+            font-size: 1.8rem;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .benefit-card h4 {
+            color: #1a1a2e;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .benefit-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Founder Section */
+        .founder-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .founder-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .founder-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .founder-info h2 {
+            font-size: 2rem;
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+
+        .founder-info h3 {
+            font-size: 1.5rem;
+            color: #c9a84c;
+            margin-bottom: 20px;
+        }
+
+        .founder-info p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .founder-signature {
+            margin-top: 20px;
+        }
+
+        .founder-signature img {
+            height: 60px;
+        }
+
         @media (max-width: 992px) {
             .about-grid {
                 grid-template-columns: 1fr;
@@ -60,6 +241,23 @@
             }
 
             .about-image img {
+                height: 350px;
+            }
+
+            .mv-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .founder-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .founder-image img {
                 height: 350px;
             }
         }
@@ -72,6 +270,22 @@
             .about-image img {
                 height: 250px;
             }
+
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-image img {
+                height: 250px;
+            }
         }
     </style>
 </head>
@@ -80,9 +294,11 @@
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo">
+                <!-- CHANGED: Logo opens ONLY the logo image in new tab -->
+                <a href="#" class="logo" onclick="event.preventDefault(); window.open('assets/images/logo.png', '_blank');">
                     <img src="assets/images/logo.png" alt="Kingson Residences">
-                    <h1>Kingson Residences</h1>
+                    <!-- CHANGED: Updated company name -->
+                    <h1>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h1>
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
@@ -211,7 +427,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Kingson Residences</h3>
+                    <!-- CHANGED: Updated company name in footer -->
+                    <h3>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h3>
                     <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
