@@ -73,6 +73,34 @@
             color: #1a3c5e;
             margin: 0;
             font-weight: 700;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* ===== UNDERLINE STYLES ===== */
+        .company-name-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .company-name-wrapper h1 {
+            margin-bottom: 0;
+        }
+        
+        .underline-gold {
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #c9a84c, #e8d5a3, #c9a84c);
+            border-radius: 2px;
+            margin-top: 2px;
+            animation: underlineExpand 0.8s ease-out;
+        }
+        
+        @keyframes underlineExpand {
+            from { width: 0; }
+            to { width: 100%; }
         }
         
         .nav-links {
@@ -437,6 +465,21 @@
             margin-bottom: 15px;
         }
         
+        .footer-section h3 {
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Footer Underline */
+        .footer-section .footer-underline {
+            width: 60px;
+            height: 3px;
+            background: #c9a84c;
+            border-radius: 2px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        
         .footer-section p {
             color: rgba(255,255,255,0.8);
             line-height: 1.6;
@@ -488,10 +531,6 @@
                 font-size: 28px;
             }
             
-            .logo h1 {
-                font-size: 14px;
-            }
-            
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -517,20 +556,25 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+
+            .logo h1 {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== HEADER (LOGO OPENS LOGO IMAGE IN NEW TAB) ===== -->
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="container">
             <nav>
-                <!-- CHANGED: Logo opens ONLY the logo image in new tab -->
-                <a href="#" class="logo" onclick="event.preventDefault(); window.open('assets/images/logo.png', '_blank');">
-                    <img src="assets/images/logo.png" alt="Kingson Residences">
-                    <!-- CHANGED: Updated company name -->
-                    <h1>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h1>
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo.png" alt="KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD">
+                    <div class="company-name-wrapper">
+                        <h1>KINGSON RESIDENCES &amp; RESIDENTIAL LANDS PVT LTD</h1>
+                        <div class="underline-gold"></div>
+                    </div>
                 </a>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
@@ -551,7 +595,7 @@
     <section class="page-hero">
         <div class="container">
             <h1>Contact Us</h1>
-            <p>Get in touch with us for your dream property</p>
+            <p>Get in touch with KINGSON RESIDENCES &amp; RESIDENTIAL LANDS PVT LTD for your dream property</p>
         </div>
     </section>
 
@@ -583,7 +627,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
                                 <h4>Address</h4>
-                                <p>Kingson Residences & Residential Lands Pvt Ltd<br>
+                                <p>KINGSON RESIDENCES &amp; RESIDENTIAL LANDS PVT LTD<br>
                                 Hyderabad, Telangana, India</p>
                             </div>
                         </div>
@@ -684,8 +728,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <!-- CHANGED: Updated company name in footer -->
-                    <h3>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h3>
+                    <h3>KINGSON RESIDENCES &amp; RESIDENTIAL LANDS PVT LTD</h3>
+                    <div class="footer-underline"></div>
                     <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -710,7 +754,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Kingson Residences & Residential Lands Pvt Ltd. All rights reserved.</p>
+                <p>&copy; 2026 KINGSON RESIDENCES &amp; RESIDENTIAL LANDS PVT LTD. All rights reserved.</p>
             </div>
         </div>
     </footer>
