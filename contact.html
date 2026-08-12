@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Kingson Residences</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Firebase Import Map -->
+    <script type="importmap">
+    {
+        "imports": {
+            "firebase/app": "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js",
+            "firebase/auth": "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js",
+            "firebase/firestore": "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js",
+            "firebase/storage": "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js",
+            "firebase/analytics": "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js"
+        }
+    }
+    </script>
+    
+    <style>
+        /* Global Reset & Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ===== HEADER / NAVBAR (SAME AS OTHER PAGES) ===== */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 45px;
+        }
+        
+        .logo h1 {
+            font-size: 22px;
+            color: #1a3c5e;
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: #1a3c5e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 15px;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #e67e22;
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #e67e22;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #1a3c5e;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+        
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            background: linear-gradient(135deg, #1a3c5e 0%, #2c5f8a 100%);
+            color: #fff;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        
+        .page-hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        /* ===== CONTACT SECTION ===== */
+        .contact-section {
+            padding: 80px 0;
+            background: #f5f7fa;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        
+        .contact-info h2 {
+            color: #1a3c5e;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info > p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            transition: 0.3s;
+            background: #f8f9fa;
+        }
+        
+        .contact-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: #e67e22;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .contact-item h4 {
+            color: #1a3c5e;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        
+        .contact-item p {
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .contact-item a {
+            color: #e67e22;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-contact {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .social-contact h4 {
+            color: #1a3c5e;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: #1a3c5e;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: #e67e22;
+            transform: translateY(-3px);
+        }
+        
+        /* ===== CONTACT FORM ===== */
+        .contact-form h2 {
+            color: #1a3c5e;
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            color: #1a3c5e;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .form-group .required {
+            color: #dc3545;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            transition: 0.3s;
+            font-size: 14px;
+            background: #f8f9fa;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #e67e22;
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+            background: #fff;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .btn-primary {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            background: #e67e22;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn-primary:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Success/Error Messages */
+        #formSuccess {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #d4edda;
+            border-radius: 10px;
+            color: #155724;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        #formSuccess i {
+            font-size: 32px;
+            color: #28a745;
+        }
+        
+        #formSuccess h3 {
+            margin-top: 10px;
+            color: #155724;
+        }
+        
+        #formError {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8d7da;
+            border-radius: 10px;
+            color: #721c24;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        #formError i {
+            font-size: 32px;
+            color: #dc3545;
+        }
+        
+        .close-btn {
+            margin-top: 10px;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+        
+        .close-btn-success {
+            background: #28a745;
+            color: #fff;
+        }
+        
+        .close-btn-error {
+            background: #dc3545;
+            color: #fff;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* ===== MAP SECTION ===== */
+        .map-section {
+            padding: 60px 0;
+            background: #fff;
+        }
+        
+        .map-section iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1a3c5e;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3,
+        .footer-section h4 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        
+        .footer-section p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .footer-section ul a:hover {
+            color: #e67e22;
+        }
+        
+        .footer-section .social-links a {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .footer-section .social-links a:hover {
+            background: #e67e22;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+            
+            .page-hero h1 {
+                font-size: 28px;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #fff;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                gap: 15px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER (UPDATED WITH CLICKABLE LOGO - OPENS IN NEW TAB) ===== -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo" target="_blank">
+                    <img src="assets/images/logo.png" alt="Kingson Residences">
+                    <h1>Kingson Residences</h1>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with us for your dream property</p>
+        </div>
+    </section>
+
+    <!-- ===== CONTENT ===== -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Left Column - Contact Info -->
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>We're here to help you find your dream property. Contact us through any of the following channels:</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p><a href="tel:6309998135">+91 6309998135</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:info@kingsonresidences.com">info@kingsonresidences.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Kingson Residences & Residential Lands Pvt Ltd<br>
+                                Hyderabad, Telangana, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Working Hours</h4>
+                                <p>Mon - Sat: 9:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-contact">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Contact Form -->
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject <span class="required">*</span></label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select Subject</option>
+                                <option value="Property Enquiry">Property Enquiry</option>
+                                <option value="Schedule Visit">Schedule Visit</option>
+                                <option value="General Query">General Query</option>
+                                <option value="Investment Opportunity">Investment Opportunity</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your property requirements..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary" id="submitBtn">
+                            <span id="btnText"><i class="fas fa-paper-plane"></i> Send Message</span>
+                            <span id="btnLoader" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Sending...
+                            </span>
+                        </button>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div id="formSuccess">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Thank You!</h3>
+                        <p>Your message has been sent successfully. We'll get back to you within 24 hours.</p>
+                        <button class="close-btn close-btn-success" onclick="document.getElementById('formSuccess').style.display='none'">Close</button>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="formError">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h3>Oops!</h3>
+                        <p id="errorMessage">Something went wrong. Please try again.</p>
+                        <button class="close-btn close-btn-error" onclick="document.getElementById('formError').style.display='none'">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MAP ===== -->
+    <section class="map-section">
+        <div class="container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243646.88045621835!2d78.26782640500583!3d17.412615304010514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kingson Residences</h3>
+                    <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> 6309998135</p>
+                    <p><i class="fas fa-envelope"></i> info@kingsonresidences.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kingson Residences & Residential Lands Pvt Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Hamburger Menu Toggle
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+    </script>
+
+    <script type="module">
+        import { addContactMessage } from './assets/js/firebase-auth.js';
+
+        console.log('✅ Contact page script loaded!');
+
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnLoader = document.getElementById('btnLoader');
+        const formSuccess = document.getElementById('formSuccess');
+        const formError = document.getElementById('formError');
+        const errorMessage = document.getElementById('errorMessage');
+
+        if (!form) {
+            console.error('❌ Form not found!');
+        } else {
+            console.log('✅ Form found!');
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            console.log('📤 Form submitted!');
+
+            // Show loading
+            btnText.style.display = 'none';
+            btnLoader.style.display = 'inline';
+            submitBtn.disabled = true;
+            formError.style.display = 'none';
+            formSuccess.style.display = 'none';
+
+            const formData = {
+                name: document.getElementById('fullName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value.trim()
+            };
+
+            console.log('📝 Form data:', formData);
+
+            // Validate
+            if (!formData.name || !formData.email || !formData.phone || !formData.subject || !formData.message) {
+                showError('Please fill in all required fields.');
+                resetButton();
+                return;
+            }
+
+            if (!isValidEmail(formData.email)) {
+                showError('Please enter a valid email address.');
+                resetButton();
+                return;
+            }
+
+            if (!isValidPhone(formData.phone)) {
+                showError('Please enter a valid 10-digit phone number.');
+                resetButton();
+                return;
+            }
+
+            try {
+                console.log('🚀 Sending to Firebase...');
+                const result = await addContactMessage(formData);
+                console.log('✅ Message sent successfully:', result);
+                
+                // SHOW THANK YOU MESSAGE
+                formSuccess.style.display = 'block';
+                form.reset();
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                console.log('🎉 Thank you message displayed!');
+                
+                // Auto hide after 5 seconds
+                setTimeout(() => {
+                    formSuccess.style.display = 'none';
+                }, 5000);
+                
+            } catch (error) {
+                console.error('❌ Error:', error);
+                showError(error.message || 'Failed to send message. Please try again.');
+            } finally {
+                resetButton();
+            }
+        });
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            formError.style.display = 'block';
+            setTimeout(() => { 
+                formError.style.display = 'none'; 
+            }, 5000);
+        }
+
+        function resetButton() {
+            btnText.style.display = 'inline';
+            btnLoader.style.display = 'none';
+            submitBtn.disabled = false;
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function isValidPhone(phone) {
+            return /^[0-9]{10}$/.test(phone.replace(/[\s-]/g, ''));
+        }
+    </script>
+</body>
+</html>
