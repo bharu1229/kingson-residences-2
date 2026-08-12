@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Kingson Residences</title>
+    <title>Contact Us - Kingson Residences & Residential Lands Pvt Ltd</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -99,7 +99,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #e67e22;
+            background: #c9a84c;
             transition: 0.3s;
         }
         
@@ -110,7 +110,7 @@
         
         .nav-links a:hover,
         .nav-links a.active {
-            color: #e67e22;
+            color: #c9a84c;
         }
         
         .hamburger {
@@ -197,7 +197,7 @@
         .contact-item i {
             width: 40px;
             height: 40px;
-            background: #e67e22;
+            background: #c9a84c;
             color: #fff;
             border-radius: 50%;
             display: flex;
@@ -220,7 +220,7 @@
         }
         
         .contact-item a {
-            color: #e67e22;
+            color: #c9a84c;
             text-decoration: none;
         }
         
@@ -259,7 +259,7 @@
         }
         
         .social-links a:hover {
-            background: #e67e22;
+            background: #c9a84c;
             transform: translateY(-3px);
         }
         
@@ -304,8 +304,8 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #e67e22;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+            border-color: #c9a84c;
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
             background: #fff;
         }
         
@@ -321,7 +321,7 @@
             font-weight: 600;
             border: none;
             border-radius: 10px;
-            background: #e67e22;
+            background: #c9a84c;
             color: #fff;
             cursor: pointer;
             transition: 0.3s;
@@ -329,9 +329,9 @@
         }
         
         .btn-primary:hover {
-            background: #d35400;
+            background: #b8973a;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 5px 15px rgba(201, 168, 76, 0.3);
         }
         
         .btn-primary:disabled {
@@ -458,7 +458,7 @@
         }
         
         .footer-section ul a:hover {
-            color: #e67e22;
+            color: #c9a84c;
         }
         
         .footer-section .social-links a {
@@ -466,7 +466,7 @@
         }
         
         .footer-section .social-links a:hover {
-            background: #e67e22;
+            background: #c9a84c;
         }
         
         .footer-bottom {
@@ -518,13 +518,15 @@
 </head>
 <body>
 
-    <!-- ===== HEADER (UPDATED WITH CLICKABLE LOGO - OPENS IN NEW TAB) ===== -->
+    <!-- ===== HEADER (UPDATED WITH CLICKABLE LOGO - OPENS LOGO IMAGE IN NEW TAB) ===== -->
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo" target="_blank">
+                <!-- CHANGED: Logo opens ONLY the logo image in new tab -->
+                <a href="#" class="logo" onclick="event.preventDefault(); window.open('assets/images/logo.png', '_blank');">
                     <img src="assets/images/logo.png" alt="Kingson Residences">
-                    <h1>Kingson Residences</h1>
+                    <!-- CHANGED: Updated company name -->
+                    <h1>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h1>
                 </a>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
@@ -678,7 +680,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Kingson Residences</h3>
+                    <!-- CHANGED: Updated company name in footer -->
+                    <h3>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h3>
                     <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
