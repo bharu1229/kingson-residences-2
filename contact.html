@@ -69,10 +69,11 @@
         }
         
         .logo h1 {
-            font-size: 22px;
+            font-size: 18px;
             color: #1a3c5e;
             margin: 0;
             font-weight: 700;
+            line-height: 1.2;
         }
         
         .nav-links {
@@ -513,20 +514,22 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+
+            .logo h1 {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== HEADER (UPDATED WITH CLICKABLE LOGO - OPENS LOGO IMAGE IN NEW TAB) ===== -->
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="container">
             <nav>
-                <!-- CHANGED: Logo opens ONLY the logo image in new tab -->
-                <a href="#" class="logo" onclick="event.preventDefault(); window.open('assets/images/logo.png', '_blank');">
-                    <img src="assets/images/logo.png" alt="Kingson Residences">
-                    <!-- CHANGED: Updated company name -->
-                    <h1>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h1>
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo.png" alt="Kingson Residences & Residential Lands Pvt Ltd">
+                    <h1>Kingson Residences &amp; Residential Lands Pvt Ltd</h1>
                 </a>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
@@ -547,7 +550,7 @@
     <section class="page-hero">
         <div class="container">
             <h1>Contact Us</h1>
-            <p>Get in touch with us for your dream property</p>
+            <p>Get in touch with Kingson Residences &amp; Residential Lands Pvt Ltd for your dream property</p>
         </div>
     </section>
 
@@ -579,7 +582,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
                                 <h4>Address</h4>
-                                <p>Kingson Residences & Residential Lands Pvt Ltd<br>
+                                <p>Kingson Residences &amp; Residential Lands Pvt Ltd<br>
                                 Hyderabad, Telangana, India</p>
                             </div>
                         </div>
@@ -680,8 +683,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <!-- CHANGED: Updated company name in footer -->
-                    <h3>KINGSON RESIDENCES & RESIDENTIAL LANDS PVT LTD</h3>
+                    <h3>Kingson Residences &amp; Residential Lands Pvt Ltd</h3>
                     <p>Building dreams, creating homes. Your trusted partner in premium real estate.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -706,7 +708,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Kingson Residences & Residential Lands Pvt Ltd. All rights reserved.</p>
+                <p>&copy; 2026 Kingson Residences &amp; Residential Lands Pvt Ltd. All rights reserved.</p>
             </div>
         </div>
     </footer>
